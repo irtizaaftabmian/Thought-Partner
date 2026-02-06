@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thought Partner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app" class="app expanded">
+      <div class="edge-handle" aria-hidden="true">
+        <span class="edge-dot"></span>
+        <span class="edge-dot"></span>
+        <span class="edge-dot"></span>
+      </div>
+
+      <main class="panel" aria-label="Thought Partner sidekick panel">
+        <div class="accent-strip" aria-hidden="true"></div>
+
+        <header class="header-zone">
+          <div class="header-top">
+            <div class="session-status">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span class="status-label mono">ACTIVE SESSION</span>
+            </div>
+
+            <div class="header-tools">
+              <span id="sessionTimer" class="session-timer mono">00:00</span>
+
+              <label class="mini-control mono" for="autoCaptureToggle">
+                <input type="checkbox" id="autoCaptureToggle" />
+                Auto
+              </label>
+
+              <label class="mini-control mono" for="pinToggle">
+                <input type="checkbox" id="pinToggle" />
+                Pin
+              </label>
+
+              <select id="dockSelect" class="mini-select mono" aria-label="Dock side">
+                <option value="right">Right</option>
+                <option value="left">Left</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="goal-wrap">
+            <button id="goalDisplay" class="goal-display" type="button"></button>
+            <input id="goalInput" class="goal-input hidden" type="text" aria-label="Session goal" />
+          </div>
+
+          <div id="milestoneList" class="milestone-list" role="group" aria-label="Milestones"></div>
+
+          <div class="progress-row">
+            <div class="progress-track" aria-hidden="true">
+              <div id="progressFill" class="progress-fill"></div>
+            </div>
+            <span id="progressText" class="progress-text mono">0/0</span>
+          </div>
+        </header>
+
+        <section id="timelineViewport" class="timeline-zone" aria-label="Session timeline">
+          <ul id="timelineList" class="timeline-list"></ul>
+        </section>
+
+        <footer class="input-zone">
+          <div class="mode-toggle" role="tablist" aria-label="Entry mode">
+            <button id="modePrompt" class="mode-btn mono" type="button">⟩ Prompt</button>
+            <button id="modeNote" class="mode-btn mono" type="button">✎ Note</button>
+          </div>
+
+          <textarea
+            id="composerInput"
+            rows="3"
+            placeholder="What did you ask?"
+            aria-label="Timeline entry text"
+          ></textarea>
+
+          <div id="outcomeRow" class="outcome-row" aria-label="Prompt outcome">
+            <button class="outcome-btn mono" type="button" data-outcome="implemented">implemented</button>
+            <button class="outcome-btn mono" type="button" data-outcome="partial">partial</button>
+            <button class="outcome-btn mono" type="button" data-outcome="failed">failed</button>
+            <button class="outcome-btn mono" type="button" data-outcome="pending">pending</button>
+          </div>
+
+          <div class="composer-actions">
+            <button id="addMilestoneBtn" class="ghost-btn mono" type="button">+ Milestone</button>
+            <button id="submitEntryBtn" class="submit-btn mono" type="button">Log Entry ↵</button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

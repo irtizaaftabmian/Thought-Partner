@@ -1,0 +1,24 @@
+{
+  "name": "vibeguard-thought-partner",
+  "version": "0.1.0",
+  "description": "Side-of-OS thought partner for notes, prompt tracking, and coding journey planning.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron ."
+  },
+  "keywords": [
+    "electron",
+    "notes",
+    "prompt-tracker",
+    "planner"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.6.1"
+  },
+  "devDependencies": {
+    "electron": "^37.2.0"
+  }
+}
