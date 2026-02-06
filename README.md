@@ -1,14 +1,23 @@
 # Thought Partner (VibeGuard Sideproject)
 
-Always-on-top side thought partner that expands on hover and stays minimal when collapsed.
+A docked Electron sidekick panel that keeps your vibecoding session organized in one place.
 
-## What it does now
+## What it does
 
-- Multi-note workspace: create/select/delete notes with titles + tags
-- Prompt session tracking: log prompts by tool + session (Codex CLI, Bash, Python, tests, etc.)
-- Session memory: filter prompt history by session
-- Thought/Test planning: generate workflow plans from notes + prompt history
-- Prompt evolution: predict next best prompts using Groq (with heuristic fallback)
+- Pinned session goal at the top (editable "north star")
+- Milestone chips with done/undone state and progress tracking
+- Unified timeline for prompts and notes with timestamps
+- Prompt outcomes: `implemented`, `partial`, `failed`, `pending`
+- Bottom-docked composer for fast prompt/note logging
+- Auto prompt capture from clipboard (toggleable)
+- Always-on-top side panel with compact collapsed hover strip
+
+## Stack
+
+- Electron
+- Vanilla HTML/CSS/JS renderer
+- Local-first persistence (JSON state in app data)
+- Optional Groq integration for prompt evolution suggestions
 
 ## Run locally
 
@@ -16,7 +25,7 @@ Always-on-top side thought partner that expands on hover and stays minimal when 
    ```bash
    npm install
    ```
-2. Configure API key:
+2. Configure environment:
    ```bash
    cp .env.example .env
    # set GROQ_API_KEY in .env
@@ -26,14 +35,15 @@ Always-on-top side thought partner that expands on hover and stays minimal when 
    npm start
    ```
 
-## Prompt evolution behavior
-
-- Uses `GROQ_API_KEY` with Groq Chat Completions for AI-driven prompt evolution.
-- If Groq is unavailable, falls back to local heuristic suggestions.
-
 ## UX behavior
 
-- Collapsed state: tiny side strip (`20px x 100px`) to avoid app obstruction
-- Hover edge to expand; move away to collapse
-- Always-on-top and fullscreen-space aware behavior on macOS
+- 360px expanded side panel, full viewport height
+- Tiny collapsed strip to avoid blocking other apps
+- Hover edge to expand and move away to collapse
+- Pin mode keeps panel open
 - `Cmd/Ctrl + Shift + Space` force-opens and pins the panel
+
+## Notes
+
+- Auto-capture listens to clipboard changes and logs prompt-like text.
+- `.env` and `node_modules` are excluded from git.
